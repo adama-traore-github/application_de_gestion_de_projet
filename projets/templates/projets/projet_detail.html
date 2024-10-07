@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Détails du Projet - {{ projet.titre }}</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+        .header {
+            background: linear-gradient(to right, #007bff, #6f42c1);
+            color: white;
+            padding: 30px 0;
+            text-align: center;
+            border-radius: 0 0 20px 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <h1>Détails du Projet</h1>
+    </div>
+
+    <div class="container mt-5">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">{{ projet.titre }}</h5>
+                <h6 class="card-subtitle mb-2 text-muted">{{ projet.icone }}</h6>
+                <p><strong>Description:</strong> {{ projet.description }}</p>
+                <p><strong>Date de début:</strong> {{ projet.date_debut }}</p>
+                <p><strong>Date de fin:</strong> {{ projet.date_fin }}</p>
+                <p><strong>Statut du projet:</strong> {{ projet.get_status_display }}</p>
+
+                <!-- Vérifier si le projet est approuvé et si une équipe est assignée -->
+                {% if projet.status == 'approved' %}
+                    <p class="alert alert-info">
+                        Une équipe vous sera assignée.
+                    </p>
+                {% endif %}
+
+                <a href="{% url 'mes_projets' %}" class="btn btn-primary">Retour à Mes Projets</a>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

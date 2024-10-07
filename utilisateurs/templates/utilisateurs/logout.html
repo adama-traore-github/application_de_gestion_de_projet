@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Déconnexion réussie</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <style>
+        body {
+            background: linear-gradient(to right, #4b79a1, #283e51);
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            text-align: center;
+        }
+        .message-container {
+            background-color: rgba(255, 255, 255, 0.2);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+        }
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+        p {
+            font-size: 1.25rem;
+        }
+        a.btn {
+            background-color: #ffffff;
+            color: #283e51;
+            border: none;
+            transition: background-color 0.3s ease;
+        }
+        a.btn:hover {
+            background-color: #feb47b;
+            color: #ffffff;
+        }
+    </style>
+</head>
+<body>
+    <div class="message-container">
+        <h1>Déconnexion réussie !</h1>
+        <p>Merci d'avoir utilisé notre service. Revenez bientôt !</p>
+        <a href="{% url 'login' %}" class="btn btn-lg mt-3">Se reconnecter</a>
+    </div>
+</body>
+</html>

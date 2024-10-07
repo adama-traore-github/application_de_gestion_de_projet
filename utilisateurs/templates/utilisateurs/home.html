@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Choix du rôle</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container text-center mt-5">
+        <h1>Bienvenue !</h1>
+        <p class="lead">Veuillez sélectionner votre rôle pour continuer.</p>
+        
+        <form method="POST">
+            {% csrf_token %}
+            <div class="row mt-4">
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Administrateur</h5>
+                            <p class="card-text">Gérez les utilisateurs et les projets.</p>
+                            <button type="submit" name="role" value="admin" class="btn btn-primary">Creer un compte Admin</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Utilisateur</h5>
+                            <p class="card-text">Soumettez des projets ou consultez vos informations.</p>
+                            <button type="submit" name="role" value="user" class="btn btn-success">Creer un compte Utilisateur</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Partenaire</h5>
+                            <p class="card-text">Participez à nos projets en tant que partenaire.</p>
+                            <button type="submit" name="role" value="partner" class="btn btn-warning">Creer un compte Partenaire</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

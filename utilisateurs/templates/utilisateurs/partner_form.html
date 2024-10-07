@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inscription Partenaire</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Styles supplémentaires -->
+    <style>
+        body {
+            background-color: #f8f9fa; /* Couleur de fond douce */
+        }
+
+        .card {
+            border: none;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-control:focus {
+            box-shadow: none;
+            border-color: #007bff;
+        }
+
+        .btn-primary {
+            background-color: #007bff;
+            border: none;
+        }
+
+        .btn-primary:hover {
+            background-color: #0056b3;
+        }
+
+        .header-text {
+            color: #007bff;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="card p-4">
+                    <div class="text-center mb-4">
+                        <h2 class="header-text">Inscription Partenaire</h2>
+                        <p>Veuillez remplir les informations suivantes pour créer un compte partenaire.</p>
+                    </div>
+                    <!-- Formulaire d'inscription -->
+                    <form method="post">
+                        {% csrf_token %}
+                        <input type="hidden" name="role" value="partner"> <!-- Champ caché pour le rôle -->
+
+                        <!-- Champ d'entrée pour le formulaire Django -->
+                        {{ form.as_p }}
+
+                        <!-- Bouton d'inscription -->
+                        <div class="text-center">
+                            <button type="submit" class="btn btn-primary w-100">
+                                S'inscrire
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

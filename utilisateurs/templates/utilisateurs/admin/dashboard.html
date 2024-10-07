@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tableau de bord Admin</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        .table {
+            font-size: 0.9rem; /* Ajustement de la taille de la police */
+        }
+
+        .table th {
+            background-color: #f8f9fa; /* Couleur d'arrière-plan pour l'en-tête */
+        }
+
+        .table tr:hover {
+            background-color: #f1f1f1; /* Couleur de survol pour les lignes */
+        }
+
+        .container {
+            margin-top: 60px; /* Marge supérieure pour le conteneur */
+        }
+
+        h2 {
+            margin-bottom: 30px; /* Marge inférieure pour le titre */
+        }
+
+        .navbar {
+            background-color: #007bff;
+        }
+
+        .navbar-brand, .nav-link {
+            color: white !important;
+        }
+
+        .nav-link:hover {
+            color: #ffc107 !important;
+        }
+
+        .btn-logout {
+            background-color: red;
+            color: white;
+        }
+
+        .btn-logout:hover {
+            background-color: darkred;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Tableau de Bord Admin</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Gestion des Projets</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'profile' %}">Profil</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{% url 'logout' %}" class="nav-link btn-logout">Déconnexion</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mt-5">
+        <h1 class="text-center mb-4">Tableau de bord de l'Administrateur</h1>
+        <h3>Total Utilisateurs : <span class="badge bg-primary">{{ total_users }}</span></h3>
+        <h3>Total Partenaires : <span class="badge bg-success">{{ total_partners }}</span></h3>
+
+        <h2 class="text-center">Liste des Projets</h2>
+        <div class="table-responsive">
+            <table class="table table-bordered table-hover">
+                <thead class="thead-light">
+                    <tr>
+                        <th>Titre</th>
+                        <th>Description</th>
+                        <th>Impact communautaire</th>
+                        <th>Budget</th>
+                        <th>Date de début</th>
+                        <th>Date de fin</th>
+                        <th>Business Plan</th>
+                        <th>Autres Documents</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for projet in projets %}
+                        <tr>
+                            <td>{{ projet.titre }}</td>
+                            <td>{{ projet.description }}</td>
+                            <td>{{ projet.impact_communautaire }}</td>
+                            <td>{{ projet.budget }}</td>
+                            <td>{{ projet.date_debut }}</td>
+                            <td>{{ projet.date_fin }}</td>
+                            <td>
+                                {% if projet.business_plan %}
+                                    <a href="{{ projet.business_plan.url }}" target="_blank" class="btn btn-info btn-sm">Télécharger</a>
+                                {% else %}
+                                    Aucun fichier
+                                {% endif %}
+                            </td>
+                            <td>
+                                {% if projet.autres_documents %}
+                                    <a href="{{ projet.autres_documents.url }}" target="_blank" class="btn btn-info btn-sm">Télécharger</a>
+                                {% else %}
+                                    Aucun fichier
+                                {% endif %}
+                            </td>
+                            <td>
+                                {% if projet.is_financed %}
+                                    <span class="text-success">OUI</span> <!-- Affiche OUI si financé -->
+                                {% else %}
+                                    <a href="#" class="btn btn-primary btn-sm">Pas Financé</a>
+                                {% endif %}
+                                <a href="{% url 'approve_project' projet.id %}" class="btn btn-success btn-sm">
+                                    <i class="fas fa-check"></i> Approuver
+                                </a>
+                                <a href="{% url 'reject_project' projet.id %}" class="btn btn-danger btn-sm">
+                                    <i class="fas fa-times"></i> Rejeter
+                                </a>
+                                <a href="{% url 'under_validation_project' projet.id %}" class="btn btn-warning btn-sm">
+                                    <i class="fas fa-clock"></i> En cours de validation
+                                </a>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS Bundle with Popper -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

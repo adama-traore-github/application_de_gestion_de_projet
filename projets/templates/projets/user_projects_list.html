@@ -1,0 +1,21 @@
+<h1>Mes Projets</h1>
+
+{% if projets %}
+    <ul>
+        {% for projet in projets %}
+            <li>
+                <a href="/projets/{{ projet.id }}/">{{ projet.titre }}</a>
+                <p>Description: {{ projet.description }}</p>
+                <p>Budget: {{ projet.budget }}</p>
+                <p>Statut: {{ projet.status }}</p>
+                <p>Date de début: {{ projet.date_debut }}</p>
+                <p>Date de fin: {{ projet.date_fin }}</p>
+            </li>
+        {% endfor %}
+    </ul>
+{% else %}
+    <p>Vous n'avez pas encore créé de projets.</p>
+{% endif %}
+
+<!-- Lien pour créer un nouveau projet -->
+<a href="/projets/submit/" class="btn btn-primary">Créer un nouveau projet</a>

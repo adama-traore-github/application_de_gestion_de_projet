@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Partenaires - Crowdpro</title>
+    <!-- Load static files -->
+    {% load static %}
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+           /* Style pour le nom de la plateforme */
+           .platform-name {
+            font-weight: bold;
+            font-size: 28px;
+            color: #007bff;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+            transition: color 0.3s ease-in-out;
+        }
+
+        .platform-name:hover {
+            color: #0056b3;
+        }
+
+        /* Style des liens dans la barre de navigation */
+        .nav-link {
+            font-size: 18px;
+        }
+
+        .nav-item {
+            margin: 0 15px;
+        }
+
+        /* Bouton "Get Started" */
+        .btn-get-started {
+            padding: 15px 30px;
+            font-size: 18px;
+            border-radius: 50px;
+            background-color: #28a745;
+            color: white;
+            transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .btn-get-started:hover {
+            background-color: #218838;
+            transform: scale(1.05);
+        }
+
+
+        /* Section Partenaires */
+        .partners-section {
+            padding: 50px 20px;
+            background-color: #f8f9fa;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .partner {
+            margin: 15px;
+            text-align: center;
+        }
+
+        .partner img {
+            width: 150px;
+            height: auto;
+            object-fit: contain;
+            transition: transform 0.3s;
+        }
+
+        .partner img:hover {
+            transform: scale(1.1);
+        }
+
+        h2 {
+            font-size: 30px;
+            color: #343a40;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        /* Section d'aide */
+        .help-section {
+            margin-top: 50px;
+            padding: 30px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .help-item {
+            margin-bottom: 30px;
+        }
+
+        .help-item h4 {
+            color: #007bff;
+        }
+
+        .help-item p {
+            font-size: 16px;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #343a40;
+            color: white;
+            padding: 30px 0;
+            text-align: left;
+        }
+
+        footer .contact-info {
+            margin-left: 20px;
+        }
+
+        footer .contact-info strong {
+            color: #007bff;
+        }
+
+        footer a {
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+    </style>
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm">
+        <div class="container-fluid">
+            <a class="navbar-brand platform-name" href="/">Crowdpro</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/">Accueil</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">Partenaire</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/utilisateurs/home_admin/">Admin</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/utilisateurs/home_user/">Utilisateur</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link btn-get-started" href="/utilisateurs/login/">Connexion</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link btn-get-started" href="/utilisateurs/home/">Inscription</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Section Partenaires -->
+    <section class="partners-section mt-5">
+        <h2>Nos Partenaires</h2>
+        <p class="text-center mb-4">Découvrez quelques un de nos partenaires.</p>
+        <div class="container d-flex justify-content-center flex-wrap">
+            <div class="partner">
+                <img src="{% static 'images/logo1.jpg' %}" alt="Logo Entreprise 1" />
+                <p>Nostra</p>
+            </div>
+            <div class="partner">
+                <img src="{% static 'images/logo2.jpg' %}" alt="Logo Entreprise 2" />
+                <p>Deslic</p>
+            </div>
+            <div class="partner">
+                <img src="{% static 'images/logo3.jpg' %}" alt="Logo Entreprise 3" />
+                <p>Coton Tchad</p>
+            </div>
+            <div class="partner">
+                <img src="{% static 'images/logo4.jpg' %}" alt="Logo Entreprise 4" />
+                <p>Baobab</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section des Partenaires Financiers (améliorée) -->
+<section class="partners-section mt-5">
+    <h2>Nos Partenaires Financiers</h2>
+    <div class="container">
+        <div class="partner-item d-flex align-items-start mb-4">
+            <i class="fas fa-hand-holding-usd fa-2x me-3 text-primary"></i>
+            <p>Nos partenaires jouent un rôle essentiel en apportant un soutien financier qui nous permet d'accélérer notre croissance et d'innover dans nos services.</p>
+        </div>
+        <div class="partner-item d-flex align-items-start mb-4">
+            <i class="fas fa-chart-line fa-2x me-3 text-success"></i>
+            <p>Ils nous aident à développer des initiatives qui renforcent notre présence sur le marché. Leur contribution est cruciale pour atteindre nos objectifs stratégiques.</p>
+        </div>
+        <div class="partner-item d-flex align-items-start mb-4">
+            <i class="fas fa-cogs fa-2x me-3 text-warning"></i>
+            <p>Grâce à eux, nous pouvons accéder à des ressources et à des outils qui améliorent notre efficacité opérationnelle. Leur soutien nous aide à mieux servir notre clientèle.</p>
+        </div>
+        <div class="partner-item d-flex align-items-start mb-4">
+            <i class="fas fa-lightbulb fa-2x me-3 text-info"></i>
+            <p>Ils nous offrent des conseils et des ressources pour naviguer dans le monde des affaires. Leur expertise nous aide à surmonter les défis et à saisir de nouvelles opportunités.</p>
+        </div>
+        <div class="partner-item d-flex align-items-start mb-4">
+            <i class="fas fa-project-diagram fa-2x me-3 text-danger"></i>
+            <p>En collaborant avec nous, ils contribuent à la réalisation de projets qui ont un impact positif sur notre communauté.</p>
+        </div>
+        <div class="partner-item d-flex align-items-start mb-4">
+            <i class="fas fa-industry fa-2x me-3 text-primary"></i>
+            <p>Ils apportent également des connaissances sectorielles précieuses qui enrichissent notre compréhension des tendances actuelles du marché.</p>
+        </div>
+        <div class="partner-item d-flex align-items-start">
+            <i class="fas fa-rocket fa-2x me-3 text-success"></i>
+            <p>Enfin, leur engagement en faveur de l'innovation nous permet de rester à la pointe des nouvelles technologies et de proposer des solutions adaptées aux besoins de nos clients.</p>
+        </div>
+    </div>
+</section>
+
+
+
+    <!-- Footer -->
+    <footer class="mt-5">
+        <div class="container d-flex justify-content-between align-items-center">
+            <div class="contact-info">
+                <p><strong>Contact :</strong> Adama Traore - <a href="mailto:wwwnostra7@gmail.com">wwwnostra7@gmail.com</a></p>
+                <p><strong>Contact WhatsApp :</strong> Yanogo Mertus Wendmalga Hachi - <a href="tel:+02943940">02943940</a></p>
+            </div>
+            <div class="social-links" style="text-align: right;">
+                <a href="#" target="_blank" class="text-decoration-none mx-2">
+                    <i class="fab fa-facebook fa-lg"></i>
+                </a>
+                <a href="#" target="_blank" class="text-decoration-none mx-2">
+                    <i class="fab fa-linkedin fa-lg"></i>
+                </a>
+                <a href="#" target="_blank" class="text-decoration-none mx-2">
+                    <i class="fab fa-instagram fa-lg"></i>
+                </a>
+            </div>
+        </div>
+        <p class="text-center mt-3">© 2024 Crowdpro - Tous droits réservés</p>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

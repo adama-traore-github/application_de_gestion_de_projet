@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profil Utilisateur</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f4f4f9; /* Couleur de fond douce */
+            font-family: 'Arial', sans-serif; /* Police pour le corps */
+        }
+        .card {
+            border-radius: 1rem; /* Coins arrondis pour la carte */
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Ombre pour la carte */
+        }
+        .card-header {
+            background-color: #007bff; /* Couleur de fond de l'en-tête */
+            color: white; /* Couleur du texte de l'en-tête */
+            border-top-left-radius: 1rem; /* Coins arrondis de l'en-tête */
+            border-top-right-radius: 1rem; /* Coins arrondis de l'en-tête */
+        }
+        .container {
+            margin-top: 50px; /* Marge supérieure pour le conteneur */
+            max-width: 500px; /* Largeur maximale du conteneur */
+        }
+        .note {
+            font-size: 0.9rem; /* Taille de police pour les notes */
+            color: #6c757d; /* Couleur des notes */
+            margin-top: 10px; /* Marge supérieure pour les notes */
+        }
+        .user-info {
+            padding: 20px; /* Rembourrage pour les informations de l'utilisateur */
+        }
+        .user-info p {
+            margin: 5px 0; /* Marge pour les paragraphes */
+        }
+        .footer {
+            text-align: center; /* Centre le texte dans le pied de page */
+            margin-top: 20px; /* Marge supérieure pour le pied de page */
+            color: #6c757d; /* Couleur du texte du pied de page */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="text-center mb-4">Profil de {{ user.username }}</h1>
+        <div class="card">
+            <div class="card-header text-center">
+                <h5>Informations de l'Utilisateur</h5>
+            </div>
+            <div class="card-body user-info">
+                <p><strong>Nom d'utilisateur :</strong> {{ user.username }}</p>
+                <p><strong>Mot de passe :</strong> <em>**********</em> (Mot de passe masqué)</p> <!-- Mot de passe masqué -->
+                <p class="note"><em>Note : Il est généralement déconseillé d'afficher le mot de passe en clair.</em></p>
+            </div>
+        </div>
+        <div class="footer">
+            <p>&copy; 2024 Votre Application. Tous droits réservés.</p>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS Bundle with Popper -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

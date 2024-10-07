@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page d'Accueil - Crowdpro</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <!-- Load static files -->
+    {% load static %}
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /* Style pour le nom de la plateforme */
+        .platform-name {
+            font-weight: bold;
+            font-size: 28px;
+            color: #007bff;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+            transition: color 0.3s ease-in-out;
+        }
+
+        .platform-name:hover {
+            color: #0056b3;
+        }
+
+        /* Section d'accueil personnalisée */
+        .welcome-section {
+            background-color: white; /* Fond blanc */
+            color: black; /* Texte en noir */
+            padding: 50px 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .welcome-section h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+
+        .welcome-section p {
+            font-size: 18px;
+            margin-bottom: 30px;
+        }
+
+        .btn-get-started {
+            padding: 15px 30px;
+            font-size: 18px;
+            border-radius: 50px;
+            background-color: #28a745;
+            color: white;
+            transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .btn-get-started:hover {
+            background-color: #218838;
+            transform: scale(1.05);
+        }
+
+        /* Témoignages */
+        .testimonial {
+            background-color: #f8f9fa;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 10px 0;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            transform: scale(1);
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        }
+
+        .testimonial:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        h2 {
+            font-size: 30px;
+            color: #343a40;
+            text-align: center;
+            margin-bottom: 30px;
+            position: relative;
+        }
+
+        h2::before {
+            content: '';
+            position: absolute;
+            width: 50px;
+            height: 3px;
+            background-color: #007bff;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        /* Footer */
+        footer {
+            background-color: #343a40;
+            color: white;
+            padding: 30px 0;
+            text-align: left;
+        }
+
+        footer .contact-info {
+            margin-left: 20px;
+        }
+
+        footer .contact-info strong {
+            color: #007bff;
+        }
+
+        footer a {
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Style des liens dans la barre de navigation */
+        .nav-link {
+            font-size: 18px; /* Augmenter la taille des liens */
+        }
+
+        .nav-item {
+            margin: 0 15px; /* Espacement entre les éléments de la nav */
+        }
+
+        /* Animation de l'image */
+        .image-section img {
+            opacity: 0;
+            transform: scale(0.8);
+            animation: fadeInScale 0.5s forwards;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3); /* Ombre autour de l'image */
+        }
+
+        @keyframes fadeInScale {
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+
+        .partners-section {
+    padding: 50px 20px;
+    background-color: #f8f9fa; /* Couleur de fond pour la section */
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.partner img {
+    width: 150px;      /* Largeur fixe */
+    height: 150px;     /* Hauteur fixe */
+    object-fit: contain; /* Conserve les proportions sans déformation */
+    transition: transform 0.3s;
+}
+
+.partner img:hover {
+    transform: scale(1.1);
+}
+
+
+    </style>
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm">
+        <div class="container-fluid">
+            <a class="navbar-brand platform-name" href="/utilisateurs/home00/">Crowdpro</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">Accueil</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/utilisateurs/home_partner/">Partenaire</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/utilisateurs/home_admin/">Admin</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/utilisateurs/home_user/">Utilisateur</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link btn-get-started" href="/utilisateurs/login/">Connexion</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link btn-get-started" href="/utilisateurs/home/">Inscription</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Section d'accueil personnalisée -->
+    <section class="welcome-section mt-5">
+        <div class="container d-flex align-items-center">
+            <div class="text-section" style="flex: 1; padding-right: 20px;">
+                <h1>Bienvenue sur Crowdpro !</h1>
+                <p>La plateforme de collaboration qui vous permet de réussir ensemble, avec des outils simples et puissants pour vos projets. Crowdpro vous offre tout ce dont vous avez besoin pour gérer, planifier, et exécuter vos idées de manière efficace.</p>
+                <a href="/utilisateurs/home/" class="btn-get-started">Rejoignez-nous dès aujourd'hui</a>
+            </div>
+            <div class="image-section" style="flex: 1; display: flex; justify-content: center;">
+                <img src="{% static 'images/image1.jpeg' %}" style="width: 100%; height: auto;" alt="Image description" />
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Partenaires -->
+<section class="partners-section mt-5">
+    <h2 class="text-center">Nos Partenaires</h2>
+    <p class="text-center mb-4">Des entreprises de premier plan font confiance à Crowdpro  </p> <!-- Texte ajouté -->
+    <div class="container d-flex justify-content-center flex-wrap">
+        <div class="partner" style="margin: 15px;">
+            <img src="{% static 'images/logo1.jpg' %}" alt="Logo Entreprise 1" />
+            <p class="text-center">Nostra</p>
+        </div>
+        <div class="partner" style="margin: 15px;">
+            <img src="{% static 'images/logo2.jpg' %}" alt="Logo Entreprise 2" />
+            <p class="text-center">Deslic</p>
+        </div>
+        <div class="partner" style="margin: 15px;">
+            <img src="{% static 'images/logo3.jpg' %}" alt="Logo Entreprise 3" />
+            <p class="text-center">TechNova</p>
+        </div>
+        <div class="partner" style="margin: 15px;">
+            <img src="{% static 'images/logo4.jpg' %}" alt="Logo Entreprise 4" />
+            <p class="text-center">Innovatech</p>
+        </div>
+        <div class="partner" style="margin: 15px;">
+            <img src="{% static 'images/logo5.jpg' %}" alt="Logo Entreprise 5" />
+            <p class="text-center">FutureWorks</p>
+        </div>
+    </div>
+</section>
+
+
+    <!-- Section Témoignages -->
+    <div class="container mt-5">
+        <h2>Témoignages</h2>
+        <div class="testimonial">
+            <p><strong>Jean Dupont :</strong> "Crowdpro a transformé notre façon de travailler. Un excellent service!"</p>
+        </div>
+        <div class="testimonial">
+            <p><strong>Marie Curie :</strong> "Une plateforme intuitive et très utile pour notre équipe."</p>
+        </div>
+        <div class="testimonial">
+            <p><strong>Pierre Martin :</strong> "Je recommande fortement Crowdpro à tous les professionnels."</p>
+        </div>
+    </div>
+
+    <!-- Footer -->
+<footer class="mt-5">
+    <div class="container d-flex justify-content-between align-items-center">
+        <div class="contact-info">
+            <p><strong>Contact :</strong> Adama Traore - <a href="mailto:wwwnostra7@gmail.com">wwwnostra7@gmail.com</a></p>
+            <p><strong>Contact WhatsApp :</strong> Yanogo Mertus Wendmalga Hachi - <a href="tel:+02943940">02943940</a></p>
+        </div>
+        <div class="social-links" style="text-align: right;">
+            <a href="#" target="_blank" class="text-decoration-none mx-2">
+                <i class="fab fa-facebook fa-lg"></i>
+            </a>
+            <a href="#" target="_blank" class="text-decoration-none mx-2">
+                <i class="fab fa-linkedin fa-lg"></i>
+            </a>
+            <a href="#" target="_blank" class="text-decoration-none mx-2">
+                <i class="fab fa-instagram fa-lg"></i>
+            </a>
+        </div>
+    </div>
+    <p class="text-center mt-3">© 2024 Crowdpro - Tous droits réservés</p>
+</footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

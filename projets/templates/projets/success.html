@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projet Envoyé</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <style>
+        body {
+            background: linear-gradient(to right, #3214dd, #feb47b);
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            text-align: center;
+        }
+        .message-container {
+            background-color: rgba(255, 255, 255, 0.2);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+        }
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+        p {
+            font-size: 1.25rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="message-container">
+        <h1>Projet Envoyé !</h1>
+        <p>Votre projet a été soumis avec succès.</p>
+        <p>Nous vous contacterons bientôt pour les prochaines étapes.</p>
+        <a href="{% url 'user_dashboard' %}" class="btn btn-light btn-lg mt-3">Retourner au tableau de bord</a>
+    </div>
+</body>
+</html>

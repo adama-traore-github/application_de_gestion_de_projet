@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modifier le Projet - {{ projet.nom }}</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #e9ecef; /* Couleur de fond plus claire */
+            font-family: 'Roboto', sans-serif; /* Police moderne */
+        }
+        .container {
+            margin-top: 50px;
+            max-width: 700px;
+        }
+        .card {
+            border-radius: 15px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Ombre subtile */
+        }
+        .card-header {
+            background-color: #007bff;
+            color: white;
+            border-top-left-radius: 15px;
+            border-top-right-radius: 15px;
+            text-align: center;
+            font-size: 1.5rem;
+        }
+        .form-label {
+            margin-top: 10px;
+            font-weight: bold;
+            color: #333; /* Couleur du texte plus foncée */
+        }
+        .form-control {
+            border-radius: 8px; /* Arrondi des bords des champs */
+        }
+        .btn-primary {
+            background-color: #007bff;
+            border-color: #007bff;
+            border-radius: 8px;
+        }
+        .btn-primary:hover {
+            background-color: #0056b3;
+        }
+        .btn-secondary {
+            background-color: #6c757d;
+            border-radius: 8px;
+        }
+        .btn-secondary:hover {
+            background-color: #5a6268;
+        }
+        .btn-cancel {
+            margin-left: 10px;
+        }
+        .card-body {
+            padding: 20px 30px;
+        }
+        .card-footer {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="card">
+            <div class="card-header">
+                Modifier le projet: {{ projet.nom }}
+            </div>
+            <div class="card-body">
+                {% if messages %}
+                    <div class="alert alert-info" role="alert">
+                        {% for message in messages %}
+                            {{ message }}
+                        {% endfor %}
+                    </div>
+                {% endif %}
+                <form method="POST" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    
+                    <div class="mb-3">
+                        <label for="nom" class="form-label">Nom du projet:</label>
+                        <input type="text" class="form-control" id="nom" name="nom" value="{{ projet.nom }}" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="description" class="form-label">Description:</label>
+                        <textarea class="form-control" id="description" name="description" required>{{ projet.description }}</textarea>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="impact_communautaire" class="form-label">Impact Communautaire:</label>
+                        <textarea class="form-control" id="impact_communautaire" name="impact_communautaire">{{ projet.impact_communautaire }}</textarea>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="budget" class="form-label">Budget:</label>
+                        <input type="number" class="form-control" id="budget" name="budget" value="{{ projet.budget }}" step="0.01" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="date_debut" class="form-label">Date de Début:</label>
+                        <input type="date" class="form-control" id="date_debut" name="date_debut" value="{{ projet.date_debut }}" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="date_fin" class="form-label">Date de Fin:</label>
+                        <input type="date" class="form-control" id="date_fin" name="date_fin" value="{{ projet.date_fin }}" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="business_plan" class="form-label">Business Plan:</label>
+                        <input type="file" class="form-control" id="business_plan" name="business_plan">
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="autres_documents" class="form-label">Autres Documents:</label>
+                        <input type="file" class="form-control" id="autres_documents" name="autres_documents">
+                    </div>
+                    
+                    <div class="d-flex justify-content-between">
+                        <a href="{% url 'mes_projets' %}" class="btn btn-secondary btn-cancel">Annuler</a>
+                        <button type="submit" class="btn btn-primary">Enregistrer</button>
+
+                    </div>
+                </form>
+            </div>
+            <div class="card-footer text-muted">
+                Merci de vérifier vos informations avant de soumettre.
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS Bundle with Popper -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
