@@ -66,8 +66,7 @@ L'application utilise des fonctions et des décorateurs pour restreindre l'accè
 - **`user_passes_test`** : Vérifie le rôle d'un utilisateur avant d'accéder à une vue spécifique.
 - **`@login_required`** : Protège les vues afin que seuls les utilisateurs authentifiés puissent y accéder.
 
-## Contributeurs
-- Traore Adama
+
 
 ## License
 Ce projet est sous licence [MIT](https://opensource.org/licenses/MIT).
