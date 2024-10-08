@@ -73,3 +73,5 @@ class MessageAdminPartner(models.Model):
 
     def __str__(self):
         return f'Message de l\'administrateur {self.sender} au partenaire {self.recipient} sur le projet {self.projet}'
+
+
